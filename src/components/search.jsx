@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 
 class Search extends Component {
+
     onSubmit = (event) => {
         event.preventDefault();
     }
+
     render() {
         return (
             <div className="navbar">

@@ -46,3 +46,15 @@ button {
 .search-form {
   margin-left: 20px;
 }
+
+.content {
+  display: flex;
+}
+
+.video-detail {
+  flex: 1 1 70%;
+}
+
+.video-list {
+  flex: 1 1 30%;
+}
