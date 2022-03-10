@@ -10,26 +10,18 @@ const Video = ({ video, video: {snippet}, onVideoClick, display }) => {
     const displayType = display === 'list' ? styles.list : styles.grid;
 
     return (
-        <>
-            <div className="media" onClick={() => onVideoClick(video)}>
-                <div className="thumbnail-area">
-                    <a href="" className="video-link">
-                        <img src={url} alt="video thumbnail" className="thumbnail" />
-                    </a>
+        <div className={styles.container}>
+            <div className={styles.video} onClick={() => onVideoClick(video)}>
+                <div className={styles.thumbnail}>
+                    <img src={url} alt="video thumbnail"/>
                 </div>
-                <div className="details">
-                    <span className="video-title">
-                        <a href="" className="video-title-link">{title}</a>
-                    </span>
-                    <span className="channel-title">
-                        <a href="" className="channel-title-link">{channelTitle}</a>
-                    </span>
-                    <span className="publish-date">
-                        <a href="" className="publish-date-link">{publishedAt}</a>
-                    </span>
+                <div className={styles.details}>
+                    <span className={styles.title}>{title}</span>
+                    <span className={styles.channel}>{channelTitle}</span>
+                    <span className={styles.publishdate}>{publishedAt}</span>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 
