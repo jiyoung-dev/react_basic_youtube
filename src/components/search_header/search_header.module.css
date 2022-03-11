@@ -1,0 +1,39 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    height: 4rem;
+    padding: 0.8em 1em;
+    background-color: rgba(32, 32, 32);
+    color: white;
+}
+
+.start,
+.center,
+.end {
+    display: flex;
+}
+
+.start, 
+.end {
+    cursor: pointer;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-right: 1em;
+}
+
+.input {
+    font-size: 2rem;
+    outline: 0;
+}
+
+.button {
+    background-color: rgba(49, 49, 49);
+}
+
+.buttonImg {
+    height: 100%;
+    padding: 0.5em 0.2em;
+}

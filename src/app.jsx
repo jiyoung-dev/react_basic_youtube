@@ -1,7 +1,7 @@
-import './app.css';
+import styles from './app.module.css';
 
 import React, { useEffect, useState } from 'react';
-import Search from './components/search';
+import SearchHeader from './components/search_header/search_header';
 import Videos from './components/videos/videos';
 import VideoDetail from './components/video_detail';
 
@@ -14,6 +14,20 @@ function App() {
     setSelectedVideo(video);
   }
 
+  const search = query => {
+    var requestOptions = {
+      method: 'GET',
+      redirect: 'follow'
+    };
+    
+    fetch(
+      `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${query}&key=${apiKey}`, requestOptions
+    )
+      .then(response => response.json())
+      .then(result => setVideos(result.items))
+      .then(error => console.log('error', error));
+  }
+
   useEffect(() => {
     const requestOptions = {
       method: 'GET',
@@ -21,7 +35,7 @@ function App() {
     };
 
     fetch(
-      `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&regionCode=KR&maxResults=25&key=${apiKey}`, requestOptions
+      `https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&regionCode=KR&maxResults=25&key=${apiKey}`, requestOptions
     )
       .then((response) => response.json())
       .then((result) => setVideos(result.items))
@@ -32,12 +46,12 @@ function App() {
 
 
   return(
-    <>
-      <Search />
+    <div className={styles.app}>
+      <SearchHeader onSearch={search} />
       <section className='content'>
         {selectedVideo && (
           <div className='video-detail'>
-            <VideoDetail video={selectedVideo}/>
+            <VideoDetail video={selectedVideo} />
           </div>
         )}
         <div className='video-list'>
@@ -48,7 +62,7 @@ function App() {
             />
         </div>
       </section>
-    </>
+    </div>
   ); 
 }
 
