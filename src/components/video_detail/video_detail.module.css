@@ -1,0 +1,30 @@
+.detail {
+    color: white;
+}
+
+span {
+    margin: 10px;
+}
+
+span.open {
+    max-height: 100%;
+    line-height: 30px;
+}
+
+span.close {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 5 ;
+    -webkit-box-orient: vertical;
+}
+
+button {
+    color:darkgrey
+}
+
+h2,
+h3,
+h4 {
+    margin: 10px;
+}

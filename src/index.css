@@ -44,4 +44,5 @@ button {
 #root {
   display: flex;
   justify-content: center;
+  background-color: #181818;
 }

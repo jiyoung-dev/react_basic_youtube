@@ -3,7 +3,7 @@ import styles from './app.module.css';
 import React, { useEffect, useState } from 'react';
 import SearchHeader from './components/search_header/search_header';
 import Videos from './components/videos/videos';
-import VideoDetail from './components/video_detail';
+import VideoDetail from './components/video_detail/video_detail';
 
 function App() {
   const apiKey = process.env.REACT_APP_YOUTUBE_API_KEY;
@@ -48,17 +48,17 @@ function App() {
   return(
     <div className={styles.app}>
       <SearchHeader onSearch={search} />
-      <section className='content'>
+      <section className={styles.content}>
         {selectedVideo && (
-          <div className='video-detail'>
+          <div className={styles.detail}>
             <VideoDetail video={selectedVideo} />
           </div>
         )}
-        <div className='video-list'>
+        <div className={styles.list}>
           <Videos 
             videos={videos} 
             onVideoClick={selectVideo}
-            // { selectedVideo? 'list' : 'grid'}
+            display={selectedVideo? 'list' : 'grid'}  //선택된 비디오가 있으면 list, 없으면 grid
             />
         </div>
       </section>
